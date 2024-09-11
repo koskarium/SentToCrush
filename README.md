@@ -1,3 +1,3 @@
 # SentToCrush
 
-Making a file to send to my crush
+Making a webpage to send to my crush

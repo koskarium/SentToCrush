@@ -12,13 +12,6 @@ body {
     background: whitesmoke;
 }
 
-.wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
 h2 {
     font-size: 2em;
     color: #e94d58;
@@ -36,16 +29,20 @@ h2 {
     height: 40px;
 }
 
+/* iPhone screen size (e.g., iPhone 12) */
+.wrapper {
+    position: relative;
+    width: 375px; /* Approximate width of iPhone screen */
+    height: 667px; /* Approximate height of iPhone screen */
+    border: 1px solid #ccc; /* Optional: visual border for the wrapper */
+    overflow: hidden; /* Ensure no content spills outside the wrapper */
+    background: white; /* Background color for better visibility */
+}
+
+/* Ensure buttons are within the wrapper */
 button {
     width: 150px;
-    height: inherit;
-    color: white;
-    font-size: 1.2em;
-    border-radius: 30px;
-    outline: none;
-    cursor: pointer;
-    box-shadow: 0 2px 4px gray;
-    border: 2px solid #e94d58;
+    height: 50px; /* Set height to match button styles */
 }
 
 button.yes-btn {

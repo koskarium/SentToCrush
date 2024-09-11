@@ -3,19 +3,8 @@ const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
 const gif = document.querySelector(".gif");
 
-// Change text and gif when the Yes button is clicked
-yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Let us meet here";
-  gif.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGI1cW5wMWhpaDF5b3pjdTF0OHZrcHJvaGkzOHJteDhmd245OGRnZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vuw9m5wXviFIQ/giphy.gif";
-    
-  // Hide the Yes and No buttons by setting their display to 'none'
-  yesBtn.style.display = "none";
-  noBtn.style.display = "none";
-});
-
-
-// Make the No button move randomly on hover
-noBtn.addEventListener("mouseover", () => {
+// Function to move the No button to a random position
+const moveNoButton = () => {
   const wrapper = document.querySelector(".wrapper");
   const wrapperRect = wrapper.getBoundingClientRect();
   const noBtnRect = noBtn.getBoundingClientRect();
@@ -29,4 +18,20 @@ noBtn.addEventListener("mouseover", () => {
 
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
+};
+
+// Change text and gif when the Yes button is clicked
+yesBtn.addEventListener("click", () => {
+  question.innerHTML = "Let us meet here";
+  gif.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGI1cW5wMWhpaDF5b3pjdTF0OHZrcHJvaGkzOHJteDhmd245OGRnZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vuw9m5wXviFIQ/giphy.gif";
+    
+  // Hide the Yes and No buttons by setting their display to 'none'
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
 });
+
+// Make the No button move randomly on hover
+noBtn.addEventListener("mouseover", moveNoButton);
+
+// Move the No button when clicked
+noBtn.addEventListener("click", moveNoButton);

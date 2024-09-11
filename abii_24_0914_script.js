@@ -50,7 +50,7 @@ function isOverlapping(x, y, noBtnWidth, noBtnHeight, yesBtnRect) {
 }
 
 // Set the initial position when the page loads
-window.addEventListener("load", setInitialNoBtnPosition);
+setInitialNoBtnPosition();
 
 // Change text and gif when the Yes button is clicked
 yesBtn.addEventListener("click", () => {

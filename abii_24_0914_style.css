@@ -12,11 +12,14 @@ body {
     background: whitesmoke;
 }
 
+/* iPhone screen size (e.g., iPhone 12) */
 .wrapper {
     position: relative;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    width: 375px; /* Approximate width of iPhone screen */
+    height: 667px; /* Approximate height of iPhone screen */
+    border: 1px solid #ccc; /* Optional: visual border for the wrapper */
+    overflow: hidden; /* Ensure no content spills outside the wrapper */
+    background: white; /* Background color for better visibility */
 }
 
 h2 {
@@ -38,7 +41,7 @@ h2 {
 
 button {
     width: 150px;
-    height: inherit;
+    height: 50px; /* Set height to match button styles */
     color: white;
     font-size: 1.2em;
     border-radius: 30px;

@@ -49,8 +49,25 @@ function isOverlapping(x, y, noBtnWidth, noBtnHeight, yesBtnRect) {
            y > yesBtnRect.bottom);
 }
 
+// Adjust the .wrapper size based on device type
+function adjustWrapperSize() {
+  const wrapper = document.querySelector(".wrapper");
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  if (isMobile) {
+    wrapper.style.width = "375px";  // iPhone width
+    wrapper.style.height = "667px"; // iPhone height
+  } else {
+    wrapper.style.width = "800px";  // Example desktop width
+    wrapper.style.height = "600px"; // Example desktop height
+  }
+}
+
 // Set the initial position when the page loads
-window.addEventListener("load", setInitialNoBtnPosition);
+window.addEventListener("load", () => {
+  adjustWrapperSize();
+  setInitialNoBtnPosition();
+});
 
 // Change text and gif when the Yes button is clicked
 yesBtn.addEventListener("click", () => {

@@ -12,6 +12,12 @@ body {
     background: whitesmoke;
 }
 
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
 
 h2 {
     font-size: 2em;
@@ -30,18 +36,16 @@ h2 {
     height: 40px;
 }
 
-/* Common styles for both mobile and desktop */
-.wrapper {
-    position: relative;
-    overflow: hidden;
-    background: white; /* Background color for better visibility */
-    border: 1px solid #ccc; /* Optional: visual border for the wrapper */
-}
-
-/* Button styles remain the same */
 button {
     width: 150px;
-    height: 50px; /* Set height to match button styles */
+    height: inherit;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px gray;
+    border: 2px solid #e94d58;
 }
 
 button.yes-btn {

@@ -12,13 +12,6 @@ body {
     background: whitesmoke;
 }
 
-.wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
 h2 {
     font-size: 2em;
     color: #e94d58;
@@ -34,6 +27,13 @@ h2 {
     margin-top: 50px;
     position: relative;
     height: 40px;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
 button {

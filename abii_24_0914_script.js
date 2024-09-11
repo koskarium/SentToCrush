@@ -2,6 +2,7 @@ const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
 const gif = document.querySelector(".gif");
+const wrapper = document.querySelector(".wrapper");
 
 // Change text and gif when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
@@ -14,9 +15,8 @@ yesBtn.addEventListener("click", () => {
 });
 
 
-// Make the No button move randomly on hover
-noBtn.addEventListener("mouseover", () => {
-  const wrapper = document.querySelector(".wrapper");
+/ Function to move the No button to a random position
+const moveNoButton = () => {
   const wrapperRect = wrapper.getBoundingClientRect();
   const noBtnRect = noBtn.getBoundingClientRect();
 
@@ -29,4 +29,8 @@ noBtn.addEventListener("mouseover", () => {
 
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
-});
+};
+
+// Add event listeners for both hover and touch
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", moveNoButton);

@@ -1,10 +1,7 @@
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
-// We are using iframe now
-// const gif = document.querySelector(".gif");
-const gifFrame = document.querySelector("iframe");
-
+const iframe = document.querySelector("iframe"); // Adjusted for the iframe
 
 // Function to move the No button to a random location within its parent container
 function moveNoBtnRandomly() {
@@ -13,15 +10,15 @@ function moveNoBtnRandomly() {
   const noBtnRect = noBtn.getBoundingClientRect();
 
   // Calculate max positions to ensure the button stays within the wrapper
-  const maxX = wrapperRect.width - noBtnRect.width - 10; // 10px margin to avoid edges
-  const maxY = wrapperRect.height - noBtnRect.height - 10; // 10px margin to avoid edges
+  const maxX = wrapperRect.width - noBtnRect.width;
+  const maxY = wrapperRect.height - noBtnRect.height;
 
   const randomX = Math.floor(Math.random() * maxX);
   const randomY = Math.floor(Math.random() * maxY);
 
   noBtn.style.position = "absolute";
-  noBtn.style.left = randomX + "px";
-  noBtn.style.top = randomY + "px";
+  noBtn.style.left = `${randomX}px`;
+  noBtn.style.top = `${randomY}px`;
 }
 
 // Initialize the No button position to avoid overlapping the Yes button
@@ -31,7 +28,6 @@ function setInitialNoBtnPosition() {
   const wrapperRect = wrapper.getBoundingClientRect();
   const noBtnRect = noBtn.getBoundingClientRect();
 
-  // Calculate initial position of No button to avoid overlapping with Yes button
   let initialX, initialY;
 
   do {
@@ -40,8 +36,8 @@ function setInitialNoBtnPosition() {
   } while (isOverlapping(initialX, initialY, noBtnRect.width, noBtnRect.height, yesBtnRect));
 
   noBtn.style.position = "absolute";
-  noBtn.style.left = initialX + "px";
-  noBtn.style.top = initialY + "px";
+  noBtn.style.left = `${initialX}px`;
+  noBtn.style.top = `${initialY}px`;
 }
 
 // Check if the No button is overlapping with the Yes button
@@ -55,15 +51,13 @@ function isOverlapping(x, y, noBtnWidth, noBtnHeight, yesBtnRect) {
 // Set the initial position when the page loads
 setInitialNoBtnPosition();
 
-// Change text and gif when the Yes button is clicked
+// Change text and iframe when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Let us meet here";
-  gifFrame.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGR3czZtZTVtZGZsN2lqZmsxbHE4NTFncTZmMzFqeWhuam01N2dzZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8Pj8VpvnuyNNK/giphy.gif"
-  // Hide the Yes and No buttons
+  iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51891.43369588311!2d-117.7022413259348!3d35.622435587006386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c16cbc000c8aa5%3A0xdcb273036710aeba!2sRidgecrest%2C%20CA%2093555!5e0!3m2!1sen!2sus!4v1726165422543!5m2!1sen!2sus";
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
 });
-
 
 // Make the No button move to a random location within the parent container on hover
 noBtn.addEventListener("mouseover", () => {
@@ -74,3 +68,6 @@ noBtn.addEventListener("mouseover", () => {
 noBtn.addEventListener("click", () => {
   moveNoBtnRandomly();
 });
+
+// Optional: Reposition the No button on window resize
+window.addEventListener("resize", setInitialNoBtnPosition);

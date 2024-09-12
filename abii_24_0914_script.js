@@ -54,7 +54,7 @@ setInitialNoBtnPosition();
 // Change text and iframe when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Let us meet here";
-  iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51891.43369588311!2d-117.7022413259348!3d35.622435587006386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c16cc049a2bbb5%3A0x9b8bac93c8c04204!2sBest%20Western%20China%20Lake%20Inn!5e0!3m2!1sen!2sus!4v1726165638566!5m2!1sen!2sus";
+  iframe.src = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6486.874441285227!2d-117.6707852!3d35.6169465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c16cc049a2bbb5%3A0x9b8bac93c8c04204!2sBest%20Western%20China%20Lake%20Inn!5e0!3m2!1sen!2sus!4v1726165902595!5m2!1sen!2sus";
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
 });

@@ -13,29 +13,31 @@ function setInitialNoBtnPosition() {
   noBtn.style.top = `${yesBtnRect.top}px`;  // Align the top of both buttons
 }
 
-// Function to move the No button to a random location near the Yes button
+// Function to move the No button to a random location within a radius around the Yes button
 function moveNoBtnRandomly() {
-  const btnGroup = document.querySelector(".btn-group");
   const yesBtnRect = yesBtn.getBoundingClientRect();
-  const btnGroupRect = btnGroup.getBoundingClientRect();
+  const noBtnRect = noBtn.getBoundingClientRect();
+  const radius = 100; // Radius around the Yes button
   
-  // Calculate a random position close to the Yes button within the button group
-  const maxX = btnGroupRect.width - noBtn.offsetWidth;
-  const maxY = btnGroupRect.height - noBtn.offsetHeight;
+  // Calculate a random angle and distance within the radius
+  const angle = Math.random() * 2 * Math.PI;
+  const distance = Math.random() * radius;
   
-  const randomX = Math.floor(Math.random() * (maxX / 2)) + (yesBtnRect.left - btnGroupRect.left + yesBtnRect.width + 10); // Added margin to avoid overlap
-  const randomY = Math.floor(Math.random() * maxY);
+  const randomX = yesBtnRect.left + yesBtnRect.width / 2 + distance * Math.cos(angle) - noBtnRect.width / 2;
+  const randomY = yesBtnRect.top + yesBtnRect.height / 2 + distance * Math.sin(angle) - noBtnRect.height / 2;
 
-  noBtn.style.left = randomX + "px";
-  noBtn.style.top = randomY + "px";
-}
+  // Ensure the No button stays within the container
+  const wrapper = document.querySelector(".wrapper");
+  const wrapperRect = wrapper.getBoundingClientRect();
+  const noBtnRect = noBtn.getBoundingClientRect();
+  
+  if (randomX < wrapperRect.left) randomX = wrapperRect.left;
+  if (randomX + noBtnRect.width > wrapperRect.right) randomX = wrapperRect.right - noBtnRect.width;
+  if (randomY < wrapperRect.top) randomY = wrapperRect.top;
+  if (randomY + noBtnRect.height > wrapperRect.bottom) randomY = wrapperRect.bottom - noBtnRect.height;
 
-// Check if the No button is overlapping with the Yes button
-function isOverlapping(x, y, noBtnWidth, noBtnHeight, yesBtnRect) {
-  return !(x + noBtnWidth < yesBtnRect.left ||
-           x > yesBtnRect.right ||
-           y + noBtnHeight < yesBtnRect.top ||
-           y > yesBtnRect.bottom);
+  noBtn.style.left = `${randomX}px`;
+  noBtn.style.top = `${randomY}px`;
 }
 
 // Set the initial position when the page loads
@@ -50,12 +52,12 @@ yesBtn.addEventListener("click", () => {
   noBtn.style.display = "none";
 });
 
-// Make the No button move to a random location within the parent container on hover
+// Make the No button move to a random location within a radius around the Yes button on hover
 noBtn.addEventListener("mouseover", () => {
   moveNoBtnRandomly();
 });
 
-// Move the No button to a random location within the parent container on click
+// Move the No button to a random location within a radius around the Yes button on click
 noBtn.addEventListener("click", () => {
   moveNoBtnRandomly();
 });

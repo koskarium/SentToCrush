@@ -24,15 +24,11 @@ h2 {
 }
 
 .btn-group {
-    margin-top: 20px;
+    margin-top: 50px;
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;  /* Full width of the container */
-    max-width: 375px;  /* Limit width to iPhone screen size */
+    height: 40px;
 }
 
-/* Ensure the wrapper takes up the full viewport height */
 .wrapper {
     display: flex;
     justify-content: center;
@@ -40,8 +36,6 @@ h2 {
     height: 100vh;  /* Full viewport height */
     flex-direction: column;  /* Arrange items vertically */
     background-color: whitesmoke;
-    max-width: 375px; /* Limit the width to iPhone screen size */
-    margin: 0 auto;  /* Center the container horizontally */
 }
 
 /* Ensure the iframe's container (div) is centered */

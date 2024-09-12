@@ -6,20 +6,19 @@ const question = document.querySelector(".question");
 const gifFrame = document.querySelector("iframe");
 
 
-// Function to move the No button to a random location within its parent container
+// Function to move the No button to a random location near the Yes button
 function moveNoBtnRandomly() {
-  const wrapper = document.querySelector(".wrapper");
-  const wrapperRect = wrapper.getBoundingClientRect();
-  const noBtnRect = noBtn.getBoundingClientRect();
-
-  // Calculate max positions to ensure the button stays within the wrapper
-  const maxX = wrapperRect.width - noBtnRect.width;
-  const maxY = wrapperRect.height - noBtnRect.height;
-
-  const randomX = Math.floor(Math.random() * maxX);
+  const btnGroup = document.querySelector(".btn-group");
+  const yesBtnRect = yesBtn.getBoundingClientRect();
+  const btnGroupRect = btnGroup.getBoundingClientRect();
+  
+  // Calculate a random position close to the Yes button within the button group
+  const maxX = btnGroupRect.width - noBtn.offsetWidth;
+  const maxY = btnGroupRect.height - noBtn.offsetHeight;
+  
+  const randomX = Math.floor(Math.random() * (maxX / 2)) + (yesBtnRect.left - btnGroupRect.left + yesBtnRect.width);
   const randomY = Math.floor(Math.random() * maxY);
 
-  noBtn.style.position = "absolute";
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
 }

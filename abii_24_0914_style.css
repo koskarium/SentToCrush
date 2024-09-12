@@ -66,6 +66,8 @@ button {
 
 button.yes-btn {
     background: #e94d58;
+    width: 150px; /* Same width */
+    height: 50px; /* Same height */
     position: relative;
     z-index: 1; /* Ensure it's above the "No" button */
 }
@@ -73,15 +75,15 @@ button.yes-btn {
 button.no-btn {
     background: white;
     color: #e94d58;
+    width: 150px; /* Same width */
+    height: 50px; /* Same height */
     position: absolute;
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the button */
+    transform: translate(-50%, -50%) rotate(45deg); /* Center and rotate to create a diagonal effect */
     border-radius: 30px;
-    width: 120px; /* Adjust size */
-    height: 40px; /* Adjust size */
     box-shadow: 0 2px 4px gray;
     border: 2px solid #e94d58;
-    /* Adjust position to be within a radius around the "Yes" button */
-    margin-top: 10px; /* Optional: fine-tune vertical position */
+    /* Adjust positioning to be within a radius around the "Yes" button */
+    margin-top: 0; /* Optional: fine-tune vertical position if needed */
 }

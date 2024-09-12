@@ -27,22 +27,36 @@ body, html {
 }
 
 /* Centering the iframe container */
+/* Styles for the iframe container */
 .gif-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;  /* Adjust the width as needed */
-    max-width: 500px;  /* Set a max width for the iframe container */
+    width: 100%;
+    max-width: 500px;
     height: 0;
-    padding-bottom: 75%;  /* Maintain aspect ratio */
+    padding-bottom: 75%;
     position: relative;
 }
 
+/* Iframe styles */
 .giphy-embed {
     position: absolute;
     width: 100%;
     height: 100%;
 }
+
+/* Overlay to prevent clicks */
+.iframe-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;  /* Make the overlay invisible */
+    z-index: 1;  /* Ensure it sits on top of the iframe */
+}
+
 
 .btn-group {
     margin-top: 20px;

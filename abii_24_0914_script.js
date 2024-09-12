@@ -1,7 +1,8 @@
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
-const gif = document.querySelector(".gif");
+// const gif = document.querySelector(".gif"); //when we were using gif
+const giphyFrame = document.querySelector("iframe"); //since we are using iframe 
 
 // Function to move the No button to a random location within its parent container
 function moveNoBtnRandomly() {
@@ -52,10 +53,10 @@ function isOverlapping(x, y, noBtnWidth, noBtnHeight, yesBtnRect) {
 // Set the initial position when the page loads
 setInitialNoBtnPosition();
 
-// Change text and gif when the Yes button is clicked
+// Change text and GIF when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Let us meet here";
-  gif.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGI1cW5wMWhpaDF5b3pjdTF0OHZrcHJvaGkzOHJteDhmd245OGRnZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vuw9m5wXviFIQ/giphy.gif";
+  giphyFrame.src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGI1cW5wMWhpaDF5b3pjdTF0OHZrcHJvaGkzOHJteDhmd245OGRnZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vuw9m5wXviFIQ/giphy.gif";
     
   // Hide the Yes and No buttons by setting their display to 'none'
   yesBtn.style.display = "none";

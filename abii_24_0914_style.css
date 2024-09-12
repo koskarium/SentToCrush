@@ -30,9 +30,25 @@ h2 {
 }
 
 .wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    flex-direction: column;  /* Arrange items vertically */
+    background-color: whitesmoke;
+}
+
+/* Ensure the iframe's container (div) is centered */
+iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.question {
+    margin-bottom: 20px;
+    font-size: 24px;
     text-align: center;
 }
 

@@ -6,11 +6,15 @@ const gifFrame = document.querySelector("iframe");
 // Function to set the initial position of the No button next to the Yes button
 function setInitialNoBtnPosition() {
   const yesBtnRect = yesBtn.getBoundingClientRect();
+  const radius = 120; // Slightly larger to ensure it doesn't overlap
   
-  // Place the No button to the right of the Yes button
+  // Place the No button at a fixed distance away from the Yes button
+  const initialX = yesBtnRect.left + yesBtnRect.width + 20; // 20px margin to the right
+  const initialY = yesBtnRect.top + Math.random() * (yesBtnRect.height - noBtn.offsetHeight); // Random vertical alignment
+  
   noBtn.style.position = "absolute";
-  noBtn.style.left = `${yesBtnRect.right + 10}px`; // 10px margin to the right
-  noBtn.style.top = `${yesBtnRect.top}px`;  // Align the top of both buttons
+  noBtn.style.left = `${initialX}px`;
+  noBtn.style.top = `${initialY}px`;
 }
 
 // Function to move the No button to a random location within a radius around the Yes button
@@ -23,14 +27,14 @@ function moveNoBtnRandomly() {
   const angle = Math.random() * 2 * Math.PI;
   const distance = Math.random() * radius;
   
-  const randomX = yesBtnRect.left + yesBtnRect.width / 2 + distance * Math.cos(angle) - noBtnRect.width / 2;
-  const randomY = yesBtnRect.top + yesBtnRect.height / 2 + distance * Math.sin(angle) - noBtnRect.height / 2;
+  let randomX = yesBtnRect.left + yesBtnRect.width / 2 + distance * Math.cos(angle) - noBtnRect.width / 2;
+  let randomY = yesBtnRect.top + yesBtnRect.height / 2 + distance * Math.sin(angle) - noBtnRect.height / 2;
 
-  // Ensure the No button stays within the container
+  // Ensure the No button stays within the container boundaries
   const wrapper = document.querySelector(".wrapper");
   const wrapperRect = wrapper.getBoundingClientRect();
-  const noBtnRect = noBtn.getBoundingClientRect();
   
+  // Correct position if outside the wrapper boundaries
   if (randomX < wrapperRect.left) randomX = wrapperRect.left;
   if (randomX + noBtnRect.width > wrapperRect.right) randomX = wrapperRect.right - noBtnRect.width;
   if (randomY < wrapperRect.top) randomY = wrapperRect.top;

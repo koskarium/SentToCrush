@@ -53,7 +53,7 @@ setInitialNoBtnPosition();
 
 // Change text, hide GIF, and add a new Tenor GIF when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Enjoy this GIF!";
+  question.innerHTML = "Perfrct, I'll pick you up at 8pm PST";
   
   // Remove the existing Tenor GIF embed
   if (tenorGifEmbed) {
@@ -66,7 +66,7 @@ yesBtn.addEventListener("click", () => {
   newGifEmbed.setAttribute("data-postid", "16978662");
   newGifEmbed.setAttribute("data-share-method", "host");
   newGifEmbed.setAttribute("data-aspect-ratio", "2.53968");
-  newGifEmbed.setAttribute("data-width", "100%");
+  newGifEmbed.setAttribute("data-width", "200%");
   newGifEmbed.innerHTML = `<a href="https://tenor.com/view/flying-mia-emma-stone-sebastian-wilder-ryan-gosling-gif-16978662">Flying Mia GIF</a> from <a href="https://tenor.com/search/flying-gifs">Flying GIFs</a>`;
   
   // Append the new Tenor GIF embed and script

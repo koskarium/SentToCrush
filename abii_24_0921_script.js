@@ -1,7 +1,7 @@
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
-const iframe = document.querySelector("iframe"); // Adjusted for the iframe
+const tenorGifEmbed = document.querySelector(".tenor-gif-embed"); // Adjusted for the Tenor GIF
 
 // Function to move the No button to a random location within its parent container
 function moveNoBtnRandomly() {
@@ -54,7 +54,16 @@ setInitialNoBtnPosition();
 // Change text, iframe, and add a hyperlink when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Let us meet here";
+  
+  // Remove the existing Tenor GIF embed
+  tenorGifEmbed.style.display = "none";
+  
+  // Add a new iframe with Google Maps
+  const iframe = document.createElement("iframe");
   iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.0491061622406!2d-118.26494162567225!3d34.06825541688703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c7067649fab5%3A0x2b00aa39537f030!2s1642!5e0!3m2!1sen!2sus!4v1726261217356!5m2!1sen!2sus";
+  iframe.width = "100%";
+  iframe.height = "450"; // Adjust height as needed
+  iframe.style.border = "0";
   
   // Create and insert a hyperlink
   const link = document.createElement("a");
@@ -63,7 +72,9 @@ yesBtn.addEventListener("click", () => {
   link.target = "_blank"; // Open in a new tab
   link.style.display = "block"; // Ensure it displays below the iframe
 
-  // Append the link below the iframe
+  // Append the iframe and link below the question
+  question.innerHTML += `<br>`;
+  question.appendChild(iframe);
   question.appendChild(link);
 
   yesBtn.style.display = "none";

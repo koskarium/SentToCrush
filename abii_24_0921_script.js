@@ -53,7 +53,7 @@ setInitialNoBtnPosition();
 
 // Change text, iframe, and add a hyperlink when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Let us meet here";
+  question.innerHTML = "Perfect, I will pick you up at 8pm PST!";
   
   // Remove the existing Tenor GIF embed
   tenorGifEmbed.style.display = "none";

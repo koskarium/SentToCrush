@@ -53,7 +53,7 @@ setInitialNoBtnPosition();
 
 // Change text, hide GIF, and add a new Tenor GIF when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Perfrct, I'll pick you up at 8pm PST";
+  question.innerHTML = "Perfect! I'll pick you up at 8 PM PST";
   
   // Remove the existing Tenor GIF embed
   if (tenorGifEmbed) {

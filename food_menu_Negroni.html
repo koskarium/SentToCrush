@@ -21,7 +21,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
+            max-width: 600px;
             text-align: center;
         }
         h1, h2, h3 {
@@ -74,6 +74,14 @@
             color: gray;
             font-size: 0.9em;
         }
+        .spirits-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .spirits-item {
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -82,49 +90,54 @@
         <div class="slogan">Michelin Star food at home</div>
         
         <h2>Food Menu</h2>
-        <div class="menu-item"><span class="dish-name">Steak and Mashed Potatoes</span> <span class="price">$14.99</span><div class="description">Juicy steak served with creamy mashed potatoes.</div></div>
-        <div class="menu-item"><span class="dish-name">Fettuccine</span> <span class="price">$12.99</span><div class="description">Classic fettuccine pasta with a rich Alfredo sauce.</div></div>
-        <div class="menu-item"><span class="dish-name">Spaghetti a la Diabla</span> <span class="price">$13.49</span><div class="description">Spicy shrimp spaghetti with a fiery tomato sauce.</div></div>
-        <div class="menu-item"><span class="dish-name">Pastrami Caprese</span> <span class="price">$11.99</span><div class="description">Pastrami with fresh mozzarella, tomatoes, and basil.</div></div>
-        <div class="menu-item"><span class="dish-name">Chicken Curry</span> <span class="price">$12.49</span><div class="description">Aromatic chicken curry with basmati rice.</div></div>
-        <div class="menu-item"><span class="dish-name">Queso Relleno</span> <span class="price">$10.99</span><div class="description">Stuffed cheese dish with a savory filling.</div></div>
-        <div class="menu-item"><span class="dish-name">Mac & Cheese</span> <span class="price">$9.99</span><div class="description">Cheesy and creamy macaroni baked to perfection.</div></div>
-        <div class="menu-item"><span class="dish-name">Salmon</span> <span class="price">$15.99</span><div class="description">Grilled salmon with a lemon butter sauce.</div></div>
-        <div class="menu-item"><span class="dish-name">Risotto</span> <span class="price">$13.99</span><div class="description">Creamy Italian risotto with parmesan and mushrooms.</div></div>
-        <div class="menu-item"><span class="dish-name"></span> <span class="price">$13.99</span><div class="description">Creamy Italian risotto with parmesan and mushrooms.</div></div>
-        
+        <div class="menu-item"><span class="dish-name">Steak and Mashed Potatoes</span> <span class="price">£14.99</span><div class="description">Juicy steak served with creamy mashed potatoes.</div></div>
+        <div class="menu-item"><span class="dish-name">Fettuccine</span> <span class="price">£12.99</span><div class="description">Classic fettuccine pasta with a rich Alfredo sauce.</div></div>
+        <div class="menu-item"><span class="dish-name">Spaghetti a la Diabla</span> <span class="price">£13.49</span><div class="description">Spicy shrimp spaghetti with a fiery tomato sauce.</div></div>
+        <div class="menu-item"><span class="dish-name">Pastrami Caprese</span> <span class="price">£11.99</span><div class="description">Pastrami with fresh mozzarella, tomatoes, and basil.</div></div>
+        <div class="menu-item"><span class="dish-name">Chicken Curry</span> <span class="price">£12.49</span><div class="description">Aromatic chicken curry with basmati rice.</div></div>
+        <div class="menu-item"><span class="dish-name">Queso Relleno</span> <span class="price">£10.99</span><div class="description">Stuffed cheese dish with a savory filling.</div></div>
+        <div class="menu-item"><span class="dish-name">Mac & Cheese</span> <span class="price">£9.99</span><div class="description">Cheesy and creamy macaroni baked to perfection.</div></div>
+        <div class="menu-item"><span class="dish-name">Salmon</span> <span class="price">£15.99</span><div class="description">Grilled salmon with a lemon butter sauce.</div></div>
+        <div class="menu-item"><span class="dish-name">Risotto</span> <span class="price">£13.99</span><div class="description">Creamy Italian risotto with parmesan and mushrooms.</div></div>
+
         <h2>Drinks Menu</h2>
         <h3>Spirits</h3>
-        <div class="columns">
-            <div class="column">Arette Tequila - $8</div>
-            <div class="column">Hendricks Gin - $7</div>
-            <div class="column">Citadelle Gin - $7</div>
-            <div class="column">Bumbu XO Rum - $7</div>
-            <div class="column">Rittenhouse Rye Whisky - $8</div>            
-            <div class="column">Laphroig 10 yr Whisky - $7</div>
-            <div class="column">Glenlivete 18 yr Whisky - $15</div>            
-            <div class="column">Pierre Ferrand Cognac - $10</div>
-            <div class="column">Rémy Martin Cognac - $10</div>
-            <div class="column">Kettle One Vodka - $7</div>
-            <div class="column">Mephisto Absith - $7</div>
+        <div class="spirits-section">
+            <div class="spirits-item">Arette Tequila - £8</div>
+            <div class="spirits-item">Hendricks Gin - £7</div>
+            <div class="spirits-item">Citadelle Gin - £7</div>
+            <div class="spirits-item">Bumbu XO Rum - £7</div>
+            <div class="spirits-item">Rittenhouse Rye Whisky - £8</div>
+            <div class="spirits-item">Laphroig 10 yr Whisky - £7</div>
+            <div class="spirits-item">Glenlivet 18 yr Whisky - £15</div>
+            <div class="spirits-item">Pierre Ferrand Cognac - £10</div>
+            <div class="spirits-item">Rémy Martin Cognac - £10</div>
+            <div class="spirits-item">Kettle One Vodka - £7</div>
+            <div class="spirits-item">Mephisto Absinthe - £7</div>
         </div>
-        
+
         <h3>Wines</h3>
-        <div class="menu-item"><span class="dish-name">Chateau Lague Fronsac Bordeaux, 2020</span> <span class="price">$12</span><div class="description">Dark berries, red plums, cloves and licorice with a hint of dried orange peel. Medium-bodied, juicy and crunchy with firm tannins. Shows freshness and poise. 90% merlot and 10% cabernet franc. </div></div>
-        
+        <div class="menu-item"><span class="dish-name">Chateau Lague Fronsac Bordeaux, 2020</span> <span class="price">£12</span><div class="description">Bordeaux, France. Dark berries, red plums, cloves and licorice with a hint of dried orange peel.</div></div>
+        <div class="menu-item"><span class="dish-name">Cecchi Sangiovese Toscana, 2020</span> <span class="price">£12</span><div class="description">Chianti, Italy. This wine has a delicate fruity aroma reminiscent of the iris and violet.</div></div>
+        <div class="menu-item"><span class="dish-name">Chateau Bellevue Bordeaux, 2021</span> <span class="price">£12</span><div class="description">Bordeaux, France. Rich red fruit flows on and on in this charming little wine.</div></div>
+        <div class="menu-item"><span class="dish-name">Chateau Bellevue Bordeaux, 2022</span> <span class="price">£12</span><div class="description">Bordeaux, France. Rich red fruit flows on and on in this charming little wine.</div></div>
+        <div class="menu-item"><span class="dish-name">Chateau Bois Redon Bordeaux, 2020</span> <span class="price">£12</span><div class="description">Bordeaux, France. A small proportion of this rounded wine has been wood aged. That has produced some fine tannins aligned with the berry flavors. It is a fruity and ripe Merlot-dominated wine, full of juicy acidity at the end.</div></div>
+        <div class="menu-item"><span class="dish-name">Freixenet Cordon Negro Brut</span> <span class="price">£12</span><div class="description">Barcelona, Spain. This wine is medium-bodied with a palate of apple, pear and bright citrus flavors with a moderately long finish and a crisp touch of ginger.</div></div>
+        <div class="menu-item"><span class="dish-name">Bar Dog Sparkling Wine, 2022</span> <span class="price">£12</span><div class="description">California.</div></div>
+
         <h3>Mixed Drinks</h3>
-        <div class="menu-item"><span class="dish-name">Negroni</span> <span class="price">$12</span><div class="description">Gin, vermouth rosso, and Campari served with an orange twist.</div></div>
-        <div class="menu-item"><span class="dish-name">Old Fashioned</span> <span class="price">$11</span><div class="description">Bourbon, sugar, bitters, and a twist of orange peel.</div></div>
-        <div class="menu-item"><span class="dish-name">Margarita</span> <span class="price">$10</span><div class="description">Tequila, lime juice, and triple sec with a salted rim.</div></div>
-        <div class="menu-item"><span class="dish-name">Moscow Mule</span> <span class="price">$10</span><div class="description">Vodka, ginger beer, and lime served in a copper mug.</div></div>
-        <div class="menu-item"><span class="dish-name">Whiskey Sour</span> <span class="price">$11</span><div class="description">Whiskey, lemon juice, sugar, and bitters.</div></div>
-        <div class="menu-item"><span class="dish-name">Daiquiri</span> <span class="price">$10</span><div class="description">Rum, lime juice, and simple syrup shaken over ice.</div></div>
+        <div class="menu-item"><span class="dish-name">Negroni</span> <span class="price">£12</span><div class="description">Gin, vermouth rosso, and Campari served with an orange twist.</div></div>
+        <div class="menu-item"><span class="dish-name">Old Fashioned</span> <span class="price">£11</span><div class="description">Bourbon, sugar, bitters, and a twist of orange peel.</div></div>
+        <div class="menu-item"><span class="dish-name">Margarita</span> <span class="price">£10</span><div class="description">Tequila, lime juice, and triple sec with a salted rim.</div></div>
+        <div class="menu-item"><span class="dish-name">Moscow Mule</span> <span class="price">£10</span><div class="description">Vodka, ginger beer, and lime served in a copper mug.</div></div>
+        <div class="menu-item"><span class="dish-name">Whiskey Sour</span> <span class="price">£11</span><div class="description">Whiskey, lemon juice, sugar, and bitters.</div></div>
+        <div class="menu-item"><span class="dish-name">Daiquiri</span> <span class="price">£10</span><div class="description">Rum, lime juice, and simple syrup shaken over ice.</div></div>
         
         <div class="contact">
-           <p><a href="https://maps.google.com?q=840+E+Ridgecrest+Blvd,+Ridgecrest,+CA+93555" target="_blank">Visit Us</a></p>
+            <p><a href="https://maps.google.com?q=840+E+Ridgecrest+Blvd,+Ridgecrest,+CA+93555" target="_blank">Visit Us</a></p>
             <p>Phone: (657) 262-0205</p>
-        </div> 
-        
+        </div>
+
         <div class="payment-note">We accept all kinds of payments: cash, credit card (except American Express), love, your heart, and many more.</div>
     </div>
 </body>

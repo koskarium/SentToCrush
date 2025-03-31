@@ -9,12 +9,12 @@
             font-family: Arial, sans-serif;
             background-color: whitesmoke;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             flex-direction: column;
+            min-height: 100vh;
         }
         .menu-container {
             background: white;
@@ -24,7 +24,7 @@
             max-width: 400px;
             text-align: center;
         }
-        h1 {
+        h1, h2, h3 {
             margin-bottom: 5px;
         }
         .slogan {
@@ -39,8 +39,11 @@
         .menu-item:last-child {
             border-bottom: none;
         }
-        .price {
+        .dish-name {
             font-weight: bold;
+        }
+        .price {
+            font-size: 0.9em;
         }
         .description {
             font-style: italic;
@@ -55,6 +58,22 @@
             color: blue;
             text-decoration: none;
         }
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex: 1;
+            min-width: 120px;
+        }
+        .payment-note {
+            margin-top: 20px;
+            font-style: italic;
+            color: gray;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -63,47 +82,51 @@
         <div class="slogan">Michelin Star food at home</div>
         
         <h2>Food Menu</h2>
-        <div class="menu-item"><span class="price">$14.99</span> - Steak and Mashed Potatoes<div class="description">Juicy steak served with creamy mashed potatoes.</div></div>
-        <div class="menu-item"><span class="price">$12.99</span> - Fettuccine<div class="description">Classic fettuccine pasta with a rich Alfredo sauce.</div></div>
-        <div class="menu-item"><span class="price">$13.49</span> - Spaghetti a la Diabla<div class="description">Spicy shrimp spaghetti with a fiery tomato sauce.</div></div>
-        <div class="menu-item"><span class="price">$11.99</span> - Pastrami Caprese<div class="description">Pastrami with fresh mozzarella, tomatoes, and basil.</div></div>
-        <div class="menu-item"><span class="price">$12.49</span> - Chicken Curry<div class="description">Aromatic chicken curry with basmati rice.</div></div>
-        <div class="menu-item"><span class="price">$10.99</span> - Queso Relleno<div class="description">Stuffed cheese dish with a savory filling.</div></div>
-        <div class="menu-item"><span class="price">$9.99</span> - Mac & Cheese<div class="description">Cheesy and creamy macaroni baked to perfection.</div></div>
-        <div class="menu-item"><span class="price">$15.99</span> - Salmon<div class="description">Grilled salmon with a lemon butter sauce.</div></div>
-        <div class="menu-item"><span class="price">$13.99</span> - Risotto<div class="description">Creamy Italian risotto with parmesan and mushrooms.</div></div>
-        
-        <h2>Pastries</h2>
-        <div class="menu-item"><span class="price">$6.99</span> - Sacher<div class="description">Classic Austrian chocolate cake with apricot jam.</div></div>
-        <div class="menu-item"><span class="price">$5.99</span> - Tiramisu<div class="description">Traditional Italian dessert with mascarpone and coffee.</div></div>
-        <div class="menu-item"><span class="price">$5.99</span> - Cheesecake<div class="description">Creamy cheesecake with a buttery graham crust.</div></div>
-        <div class="menu-item"><span class="price">$3.99</span> - Cookies<div class="description">Freshly baked cookies with chocolate chips.</div></div>
-        <div class="menu-item"><span class="price">$4.49</span> - Savoiardi<div class="description">Italian ladyfingers, light and crisp.</div></div>
+        <div class="menu-item"><span class="dish-name">Steak and Mashed Potatoes</span> <span class="price">$14.99</span><div class="description">Juicy steak served with creamy mashed potatoes.</div></div>
+        <div class="menu-item"><span class="dish-name">Fettuccine</span> <span class="price">$12.99</span><div class="description">Classic fettuccine pasta with a rich Alfredo sauce.</div></div>
+        <div class="menu-item"><span class="dish-name">Spaghetti a la Diabla</span> <span class="price">$13.49</span><div class="description">Spicy shrimp spaghetti with a fiery tomato sauce.</div></div>
+        <div class="menu-item"><span class="dish-name">Pastrami Caprese</span> <span class="price">$11.99</span><div class="description">Pastrami with fresh mozzarella, tomatoes, and basil.</div></div>
+        <div class="menu-item"><span class="dish-name">Chicken Curry</span> <span class="price">$12.49</span><div class="description">Aromatic chicken curry with basmati rice.</div></div>
+        <div class="menu-item"><span class="dish-name">Queso Relleno</span> <span class="price">$10.99</span><div class="description">Stuffed cheese dish with a savory filling.</div></div>
+        <div class="menu-item"><span class="dish-name">Mac & Cheese</span> <span class="price">$9.99</span><div class="description">Cheesy and creamy macaroni baked to perfection.</div></div>
+        <div class="menu-item"><span class="dish-name">Salmon</span> <span class="price">$15.99</span><div class="description">Grilled salmon with a lemon butter sauce.</div></div>
+        <div class="menu-item"><span class="dish-name">Risotto</span> <span class="price">$13.99</span><div class="description">Creamy Italian risotto with parmesan and mushrooms.</div></div>
         
         <h2>Drinks Menu</h2>
         <h3>Spirits</h3>
-        <div class="menu-item">Tequila</div>
-        <div class="menu-item">Gin</div>
-        <div class="menu-item">Cognac</div>
-        <div class="menu-item">Vodka</div>
+        <div class="columns">
+            <div class="column">Patrón Tequila - $8</div>
+            <div class="column">Herradura Tequila - $8</div>
+            <div class="column">Tanqueray Gin - $7</div>
+            <div class="column">Bombay Sapphire Gin - $7</div>
+            <div class="column">Hennessy Cognac - $10</div>
+            <div class="column">Rémy Martin Cognac - $10</div>
+            <div class="column">Grey Goose Vodka - $7</div>
+            <div class="column">Belvedere Vodka - $7</div>
+        </div>
         
         <h3>Wines</h3>
-        <div class="menu-item">Red Wine</div>
-        <div class="menu-item">White Wine</div>
-        <div class="menu-item">Rosé Wine</div>
-        <div class="menu-item">Sparkling Wine</div>
+        <div class="columns">
+            <div class="column">Cabernet Sauvignon - $9</div>
+            <div class="column">Merlot - $8</div>
+            <div class="column">Chardonnay - $8</div>
+            <div class="column">Sauvignon Blanc - $8</div>
+        </div>
         
         <h3>Mixed Drinks</h3>
-        <div class="menu-item"><span class="price">$9.99</span> - Negroni<div class="description">A classic mix of gin, vermouth, and Campari.</div></div>
-        <div class="menu-item"><span class="price">$7.99</span> - Old Fashioned<div class="description">Bourbon, bitters, and a hint of orange.</div></div>
-        <div class="menu-item"><span class="price">$6.99</span> - Espresso Martini<div class="description">Vodka, coffee liqueur, and fresh espresso.</div></div>
-        <div class="menu-item"><span class="price">$5.99</span> - Mojito<div class="description">Refreshing mix of rum, mint, lime, and soda.</div></div>
-        
+        <div class="menu-item"><span class="dish-name">Negroni</span> <span class="price">$12</span><div class="description">Gin, vermouth rosso, and Campari served with an orange twist.</div></div>
+        <div class="menu-item"><span class="dish-name">Old Fashioned</span> <span class="price">$11</span><div class="description">Bourbon, sugar, bitters, and a twist of orange peel.</div></div>
+        <div class="menu-item"><span class="dish-name">Margarita</span> <span class="price">$10</span><div class="description">Tequila, lime juice, and triple sec with a salted rim.</div></div>
+        <div class="menu-item"><span class="dish-name">Moscow Mule</span> <span class="price">$10</span><div class="description">Vodka, ginger beer, and lime served in a copper mug.</div></div>
+        <div class="menu-item"><span class="dish-name">Whiskey Sour</span> <span class="price">$11</span><div class="description">Whiskey, lemon juice, sugar, and bitters.</div></div>
+        <div class="menu-item"><span class="dish-name">Daiquiri</span> <span class="price">$10</span><div class="description">Rum, lime juice, and simple syrup shaken over ice.</div></div>
         
         <div class="contact">
-            <p><a href="https://maps.google.com?q=840+E+Ridgecrest+Blvd,+Ridgecrest,+CA+93555" target="_blank">Visit Us</a></p>
+           <p><a href="https://maps.google.com?q=840+E+Ridgecrest+Blvd,+Ridgecrest,+CA+93555" target="_blank">Visit Us</a></p>
             <p>Phone: (657) 262-0205</p>
-        </div>
+        </div> 
+        
+        <div class="payment-note">We accept all kinds of payments: cash, credit card (except American Express), love, your heart, and many more.</div>
     </div>
 </body>
 </html>

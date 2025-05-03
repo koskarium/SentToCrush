@@ -107,8 +107,10 @@
 
     <script>
         function matchNames() {
-            const name1 = document.getElementById("name1").value.trim().toLowerCase();
-            const name2 = document.getElementById("name2").value.trim().toLowerCase();
+            const name1Input = document.getElementById("name1").value.trim();
+            const name2Input = document.getElementById("name2").value.trim();
+            const name1 = name1Input.toLowerCase();
+            const name2 = name2Input.toLowerCase();
             const resultDiv = document.getElementById("result");
 
             if (!name1 || !name2) {
@@ -116,27 +118,42 @@
                 return;
             }
 
-            let matchPercent;
+            let matchPercent = 0;
+            let isLowercase = false;
+            let showHearts = false;
 
             if ((name1 === "kevin" && name2 === "lia") || (name1 === "lia" && name2 === "kevin")) {
                 matchPercent = 100;
+                showHearts = true;
+            } else if (name1 === "kevin" && name2 === "kevin") {
+                matchPercent = 0;
+                isLowercase = true;
+                showHearts = true;
             } else if (name1 === "kevin" || name2 === "kevin") {
-                matchPercent = Math.floor(Math.random() * 21) + 80;
+                matchPercent = Math.floor(Math.random() * 21) + 80; // 80–100
+                showHearts = true;
             } else {
-                matchPercent = Math.floor(Math.random() * 41);
+                matchPercent = Math.floor(Math.random() * 41); // 0–40
             }
 
-            const displayName1 = capitalize(name1);
-            const displayName2 = capitalize(name2);
-            resultDiv.textContent = `${displayName1} and ${displayName2} match ${matchPercent}%!`;
+            let outputText;
+            if (isLowercase) {
+                outputText = `${name1} and ${name2} match ${matchPercent}%!`;
+            } else {
+                const displayName1 = capitalize(name1Input);
+                const displayName2 = capitalize(name2Input);
+                outputText = `${displayName1} and ${displayName2} match ${matchPercent}%!`;
+            }
 
-            if (matchPercent === 100) {
+            resultDiv.textContent = outputText;
+
+            if (showHearts) {
                 createHearts(20);
             }
         }
 
         function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
+            return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
         }
 
         function createHearts(count) {
@@ -146,7 +163,6 @@
                 heart.style.left = Math.random() * window.innerWidth + "px";
                 heart.style.top = (window.innerHeight - 100) + "px";
                 heart.style.animationDuration = (1.5 + Math.random()).toFixed(2) + "s";
-
                 document.body.appendChild(heart);
                 setTimeout(() => heart.remove(), 2000);
             }

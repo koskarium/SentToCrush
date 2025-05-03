@@ -109,12 +109,19 @@
         function matchNames() {
             const name1Input = document.getElementById("name1").value.trim();
             const name2Input = document.getElementById("name2").value.trim();
+            const zodiac1 = document.getElementById("zodiac1").value;
+            const zodiac2 = document.getElementById("zodiac2").value;
             const name1 = name1Input.toLowerCase();
             const name2 = name2Input.toLowerCase();
             const resultDiv = document.getElementById("result");
 
             if (!name1 || !name2) {
                 resultDiv.textContent = "Please enter both names.";
+                return;
+            }
+
+            if (!zodiac1 || !zodiac2) {
+                resultDiv.textContent = "Please select a zodiac sign for both names.";
                 return;
             }
 

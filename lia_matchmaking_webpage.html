@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Name Match</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #fff0f5;
+            overflow-x: hidden;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        /* Heart styles */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: floatUp 2s ease-in-out forwards;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: rotate(45deg) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(45deg) translateY(-200px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Name Matcher</h1>
+    <input type="text" id="name1" placeholder="Enter first name">
+    <input type="text" id="name2" placeholder="Enter second name">
+    <br>
+    <button onclick="matchNames()">Match</button>
+    <div id="result"></div>
+
+    <script>
+        function matchNames() {
+            const name1 = document.getElementById("name1").value.trim().toLowerCase();
+            const name2 = document.getElementById("name2").value.trim().toLowerCase();
+            const resultDiv = document.getElementById("result");
+
+            if (!name1 || !name2) {
+                resultDiv.textContent = "Please enter both names.";
+                return;
+            }
+
+            let matchPercent;
+
+            if ((name1 === "kevin" && name2 === "lia") || (name1 === "lia" && name2 === "kevin")) {
+                matchPercent = 100;
+            } else if (name1 === "kevin" || name2 === "kevin") {
+                matchPercent = Math.floor(Math.random() * 21) + 80;
+            } else {
+                matchPercent = Math.floor(Math.random() * 41);
+            }
+
+            const displayName1 = capitalize(name1);
+            const displayName2 = capitalize(name2);
+            resultDiv.textContent = `${displayName1} and ${displayName2} match ${matchPercent}%!`;
+
+            if (matchPercent === 100) {
+                createHearts(20); // Launch hearts
+            }
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function createHearts(count) {
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement("div");
+                heart.className = "heart";
+                heart.style.left = Math.random() * window.innerWidth + "px";
+                heart.style.top = (window.innerHeight - 100) + "px";
+                heart.style.animationDuration = (1.5 + Math.random()).toFixed(2) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 2000); // Clean up
+            }
+        }
+    </script>
+
+</body>
+</html>

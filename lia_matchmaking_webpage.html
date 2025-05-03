@@ -11,7 +11,7 @@
             background-color: #fff0f5;
             overflow-x: hidden;
         }
-        input, button {
+        input, select, button {
             padding: 10px;
             margin: 10px;
             font-size: 16px;
@@ -25,8 +25,6 @@
             font-weight: bold;
             color: #d63384;
         }
-
-        /* Heart styles */
         .heart {
             position: absolute;
             width: 20px;
@@ -35,7 +33,6 @@
             transform: rotate(45deg);
             animation: floatUp 2s ease-in-out forwards;
         }
-
         .heart::before,
         .heart::after {
             content: '';
@@ -45,17 +42,14 @@
             background-color: red;
             border-radius: 50%;
         }
-
         .heart::before {
             top: -10px;
             left: 0;
         }
-
         .heart::after {
             left: -10px;
             top: 0;
         }
-
         @keyframes floatUp {
             0% {
                 transform: rotate(45deg) translateY(0);
@@ -71,9 +65,43 @@
 <body>
 
     <h1>Name Matcher</h1>
+
     <input type="text" id="name1" placeholder="Enter first name">
-    <input type="text" id="name2" placeholder="Enter second name">
+    <select id="zodiac1">
+        <option value="">Select zodiac</option>
+        <option>Aries</option>
+        <option>Taurus</option>
+        <option>Gemini</option>
+        <option>Cancer</option>
+        <option>Leo</option>
+        <option>Virgo</option>
+        <option>Libra</option>
+        <option>Scorpio</option>
+        <option>Sagittarius</option>
+        <option>Capricorn</option>
+        <option>Aquarius</option>
+        <option>Pisces</option>
+    </select>
     <br>
+
+    <input type="text" id="name2" placeholder="Enter second name">
+    <select id="zodiac2">
+        <option value="">Select zodiac</option>
+        <option>Aries</option>
+        <option>Taurus</option>
+        <option>Gemini</option>
+        <option>Cancer</option>
+        <option>Leo</option>
+        <option>Virgo</option>
+        <option>Libra</option>
+        <option>Scorpio</option>
+        <option>Sagittarius</option>
+        <option>Capricorn</option>
+        <option>Aquarius</option>
+        <option>Pisces</option>
+    </select>
+    <br>
+
     <button onclick="matchNames()">Match</button>
     <div id="result"></div>
 
@@ -103,7 +131,7 @@
             resultDiv.textContent = `${displayName1} and ${displayName2} match ${matchPercent}%!`;
 
             if (matchPercent === 100) {
-                createHearts(20); // Launch hearts
+                createHearts(20);
             }
         }
 
@@ -120,8 +148,7 @@
                 heart.style.animationDuration = (1.5 + Math.random()).toFixed(2) + "s";
 
                 document.body.appendChild(heart);
-
-                setTimeout(() => heart.remove(), 2000); // Clean up
+                setTimeout(() => heart.remove(), 2000);
             }
         }
     </script>

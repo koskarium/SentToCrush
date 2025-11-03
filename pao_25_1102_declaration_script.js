@@ -57,10 +57,12 @@ yesBtn.addEventListener("click", () => {
     
     // 1. Update the main heading with the NEW ROMANTIC CONFIRMATION and the REASSURANCE LINK
     question.innerHTML = `
-        ¡Nuestro primer "sí"! Lo sabía. Ya tienes mi corazón.
+        ¡Nuestro primer "sí"! Lo sabía. Ya tienes mi corazón!
         <br><br>
         <span style="font-size: 0.8em; color: #555;">
-            Si necesitas saber más sobre nuestra hoja de ruta, haz clic <a href="https://koskarium.github.io/SentToCrush/pao_25_1102_matchmaking_webpage.html" target="_blank" style="color: #e94d58; text-decoration: none; font-weight: bold;">aquí</a>.
+            Me gustaria que nos communiquemos mas sequido. Qué día estás libre para platicar? 
+            <br><br>           
+            Si necesitas más reaseguro, haz clic en el enlace y ve si el destino y los dioses de la fortuna lo tienen a nuestro favor: <a href="https://koskarium.github.io/SentToCrush/pao_25_1102_matchmaking_webpage.html" target="_blank" style="color: #e94d58; text-decoration: none; font-weight: bold;">aquí</a>.
         </span>
     `;
     

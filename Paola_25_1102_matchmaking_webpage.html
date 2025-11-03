@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fate Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #fff0f5;
+            overflow-x: hidden;
+        }
+        input, select, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #d63384;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: floatUp 2s ease-in-out forwards;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: rotate(45deg) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(45deg) translateY(-200px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fate Finder</h1>
+
+    <input type="text" id="name1" placeholder="Enter first name">
+    <select id="zodiac1">
+        <option value="">Select zodiac</option>
+        <option>Aries</option>
+        <option>Taurus</option>
+        <option>Gemini</option>
+        <option>Cancer</option>
+        <option>Leo</option>
+        <option>Virgo</option>
+        <option>Libra</option>
+        <option>Scorpio</option>
+        <option>Sagittarius</option>
+        <option>Capricorn</option>
+        <option>Aquarius</option>
+        <option>Pisces</option>
+    </select>
+    <br>
+
+    <input type="text" id="name2" placeholder="Enter second name">
+    <select id="zodiac2">
+        <option value="">Select zodiac</option>
+        <option>Aries</option>
+        <option>Taurus</option>
+        <option>Gemini</option>
+        <option>Cancer</option>
+        <option>Leo</option>
+        <option>Virgo</option>
+        <option>Libra</option>
+        <option>Scorpio</option>
+        <option>Sagittarius</option>
+        <option>Capricorn</option>
+        <option>Aquarius</option>
+        <option>Pisces</option>
+    </select>
+    <br>
+
+    <button onclick="matchNames()">Match</button>
+    <div id="result"></div>
+
+    <script>
+        function matchNames() {
+            const name1Input = document.getElementById("name1").value.trim();
+            const name2Input = document.getElementById("name2").value.trim();
+            const zodiac1 = document.getElementById("zodiac1").value;
+            const zodiac2 = document.getElementById("zodiac2").value;
+            
+            // Standardize names for comparison by converting to lowercase
+            const name1 = name1Input.toLowerCase();
+            const name2 = name2Input.toLowerCase();
+            const resultDiv = document.getElementById("result");
+            
+            // --- Define all valid name variations (in lowercase) ---
+            const kevinNames = [
+                "kevin", "oskar", "negron", "kevin oskar", "kevin negron", "oskar negron", "kevin oskar negron"
+            ];
+            
+            const paolaNames = [
+                "paola", "andrea", "benevides", "ortiz", "paola andrea", "paola benevides", "andrea benevides", "paola andrea benevides ortiz"
+            ];
+            // -----------------------------------------------------------------
+
+            if (!name1 || !name2) {
+                resultDiv.textContent = "Please enter both names.";
+                return;
+            }
+
+            if (!zodiac1 || !zodiac2) {
+                resultDiv.textContent = "Please select a zodiac sign for both names.";
+                return;
+            }
+
+            let matchPercent = 0;
+            let showHearts = false;
+            
+            // --- Determine which input belongs to which person based on names ---
+            const name1IsKevin = kevinNames.includes(name1);
+            const name1IsPaola = paolaNames.includes(name1);
+            const name2IsKevin = kevinNames.includes(name2);
+            const name2IsPaola = paolaNames.includes(name2);
+
+            // Check for the 100% target match: 
+            // 1. One name is Kevin's and the other is Paola's.
+            // 2. The zodiacs match the required signs for that name.
+
+            const requiredZodiacsMatch1 = (zodiac1 === "Aries" && zodiac2 === "Libra");
+            const requiredZodiacsMatch2 = (zodiac1 === "Libra" && zodiac2 === "Aries"); // Swap order
+
+            const isTargetMatch = (name1IsKevin && name2IsPaola && requiredZodiacsMatch1) || 
+                                  (name1IsPaola && name2IsKevin && requiredZodiacsMatch2);
+
+
+            if (isTargetMatch) {
+                matchPercent = 100;
+                showHearts = true;
+            } else {
+                // Low match for all other combinations
+                matchPercent = Math.floor(Math.random() * 41); // 0–40
+            }
+
+            // Use the original inputs for display, capitalized
+            const displayName1 = capitalizeWords(name1Input);
+            const displayName2 = capitalizeWords(name2Input);
+            
+            const outputText = `${displayName1} (${zodiac1}) and ${displayName2} (${zodiac2}) match ${matchPercent}%!`;
+            resultDiv.textContent = outputText;
+
+            if (showHearts) {
+                createHearts(20);
+            }
+        }
+
+        // Function to capitalize the first letter of each word
+        function capitalizeWords(str) {
+            if (!str) return ""; 
+            
+            return str.toLowerCase().split(' ').map(word => {
+                if (word.length > 0) {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                }
+                return word;
+            }).join(' ');
+        }
+
+        function createHearts(count) {
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement("div");
+                heart.className = "heart";
+                heart.style.left = Math.random() * window.innerWidth + "px";
+                heart.style.top = (window.innerHeight - 100) + "px";
+                heart.style.animationDuration = (1.5 + Math.random()).toFixed(2) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
+        }
+    </script>
+
+</body>
+</html>

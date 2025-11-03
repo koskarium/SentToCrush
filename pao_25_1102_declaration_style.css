@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: whitesmoke;
+}
+
+h2 {
+    font-size: 2em;
+    color: #e94d58;
+    margin: 15px 0;
+}
+
+.gif {
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-group {
+    margin-top: 50px;
+    position: relative;
+    height: 100px; /* Adjusted to allow space for buttons */
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    flex-direction: column;  /* Arrange items vertically */
+    background-color: whitesmoke;
+}
+
+/* Ensure the iframe's container (div) is centered */
+iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.question {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+button {
+    width: 150px;
+    height: inherit;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px gray;
+    border: 2px solid #e94d58;
+}
+
+button.yes-btn {
+    background: #e94d58;
+    width: 150px; /* Same width */
+    height: 50px; /* Same height */
+    position: relative;
+    z-index: 1; /* Ensure it's above the "No" button */
+}
+
+button.no-btn {
+    background: white;
+    color: #e94d58;
+    width: 150px; /* Same width */
+    height: 50px; /* Same height */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) rotate(45deg); /* Center and rotate to create a diagonal effect */
+    border-radius: 30px;
+    box-shadow: 0 2px 4px gray;
+    border: 2px solid #e94d58;
+    /* Adjust positioning to be within a radius around the "Yes" button */
+    margin-top: 0; /* Optional: fine-tune vertical position if needed */
+}
+
+
+
+.declaration-text {
+    font-size: 1.1em;
+    color: #333; /* Dark gray for readability */
+    margin: 25px auto; /* Adds vertical spacing */
+    text-align: center;
+    max-width: 80%;
+    line-height: 1.5;
+}

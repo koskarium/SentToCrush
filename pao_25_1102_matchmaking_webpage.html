@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Fate Finder</title>
+    <title>Buscador del Destino</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,45 +64,45 @@
 </head>
 <body>
 
-    <h1>Fate Finder</h1>
+    <h1>Buscador del Destino</h1>
 
-    <input type="text" id="name1" placeholder="Enter first name">
+    <input type="text" id="name1" placeholder="Introduce el primer nombre">
     <select id="zodiac1">
-        <option value="">Select zodiac</option>
+        <option value="">Selecciona tu signo zodiacal</option>
         <option>Aries</option>
-        <option>Taurus</option>
-        <option>Gemini</option>
-        <option>Cancer</option>
+        <option>Tauro</option>
+        <option>Géminis</option>
+        <option>Cáncer</option>
         <option>Leo</option>
         <option>Virgo</option>
         <option>Libra</option>
-        <option>Scorpio</option>
-        <option>Sagittarius</option>
-        <option>Capricorn</option>
-        <option>Aquarius</option>
-        <option>Pisces</option>
+        <option>Escorpio</option>
+        <option>Sagitario</option>
+        <option>Capricornio</option>
+        <option>Acuario</option>
+        <option>Piscis</option>
     </select>
     <br>
 
-    <input type="text" id="name2" placeholder="Enter second name">
+    <input type="text" id="name2" placeholder="Introduce el segundo nombre">
     <select id="zodiac2">
-        <option value="">Select zodiac</option>
+        <option value="">Selecciona tu signo zodiacal</option>
         <option>Aries</option>
-        <option>Taurus</option>
-        <option>Gemini</option>
-        <option>Cancer</option>
+        <option>Tauro</option>
+        <option>Géminis</option>
+        <option>Cáncer</option>
         <option>Leo</option>
         <option>Virgo</option>
         <option>Libra</option>
-        <option>Scorpio</option>
-        <option>Sagittarius</option>
-        <option>Capricorn</option>
-        <option>Aquarius</option>
-        <option>Pisces</option>
+        <option>Escorpio</option>
+        <option>Sagitario</option>
+        <option>Capricornio</option>
+        <option>Acuario</option>
+        <option>Piscis</option>
     </select>
     <br>
 
-    <button onclick="matchNames()">Match</button>
+    <button onclick="matchNames()">Emparejar</button>
     <div id="result"></div>
 
     <script>
@@ -128,12 +128,12 @@
             // -----------------------------------------------------------------
 
             if (!name1 || !name2) {
-                resultDiv.textContent = "Please enter both names.";
+                resultDiv.textContent = "Por favor, ingresa ambos nombres.";
                 return;
             }
 
             if (!zodiac1 || !zodiac2) {
-                resultDiv.textContent = "Please select a zodiac sign for both names.";
+                resultDiv.textContent = "Por favor, selecciona un signo zodiacal para ambos nombres.";
                 return;
             }
 
@@ -169,7 +169,7 @@
             const displayName1 = capitalizeWords(name1Input);
             const displayName2 = capitalizeWords(name2Input);
             
-            const outputText = `${displayName1} (${zodiac1}) and ${displayName2} (${zodiac2}) match ${matchPercent}%!`;
+            const outputText = `${displayName1} (${zodiac1}) y ${displayName2} (${zodiac2}) coinciden en un ${matchPercent}%!`;
             resultDiv.textContent = outputText;
 
             if (showHearts) {

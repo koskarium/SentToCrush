@@ -1,7 +1,7 @@
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
-const tenorGifEmbed = document.querySelector(".tenor-gif-embed"); // Adjusted for the Tenor GIF
+const tenorGifEmbed = document.querySelector(".tenor-gif-embed");
 const declarationText = document.querySelector(".declaration-text"); // Select the declaration text paragraph
 
 // Function to move the No button to a random location within its parent container
@@ -22,7 +22,8 @@ function moveNoBtnRandomly() {
     noBtn.style.top = `${randomY}px`;
 }
 
-// Initialize the No button position to avoid overlapping the Yes button
+// ... (Functions setInitialNoBtnPosition and isOverlapping remain the same) ...
+
 function setInitialNoBtnPosition() {
     const wrapper = document.querySelector(".wrapper");
     const yesBtnRect = yesBtn.getBoundingClientRect();
@@ -41,7 +42,6 @@ function setInitialNoBtnPosition() {
     noBtn.style.top = `${initialY}px`;
 }
 
-// Check if the No button is overlapping with the Yes button
 function isOverlapping(x, y, noBtnWidth, noBtnHeight, yesBtnRect) {
     return !(x + noBtnWidth < yesBtnRect.left ||
              x > yesBtnRect.right ||
@@ -55,12 +55,12 @@ setInitialNoBtnPosition();
 // Change text, hide GIF, and add a new Tenor GIF when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
     
-    // 1. Update the main heading with the CONFIRMATION and the REASSURANCE LINK
+    // 1. Update the main heading with the NEW ROMANTIC CONFIRMATION and the REASSURANCE LINK
     question.innerHTML = `
-        ¡Perfecto! Paso por ti a las 8 PM PST
+        ¡Nuestro primer "sí"! Lo sabía. Ya tienes mi corazón.
         <br><br>
         <span style="font-size: 0.8em; color: #555;">
-            Si necesitas más tranquilidad, haz clic <a href="https://koskarium.github.io/SentToCrush/pao_25_1102_matchmaking_webpage.html" target="_blank" style="color: #e94d58; text-decoration: none; font-weight: bold;">aquí</a>.
+            Si necesitas saber más sobre nuestra hoja de ruta, haz clic <a href="https://koskarium.github.io/SentToCrush/pao_25_1102_matchmaking_webpage.html" target="_blank" style="color: #e94d58; text-decoration: none; font-weight: bold;">aquí</a>.
         </span>
     `;
     

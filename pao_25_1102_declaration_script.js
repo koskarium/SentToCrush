@@ -2,6 +2,7 @@ const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
 const tenorGifEmbed = document.querySelector(".tenor-gif-embed"); // Adjusted for the Tenor GIF
+const declarationText = document.querySelector(".declaration-text");
 
 // Function to move the No button to a random location within its parent container
 function moveNoBtnRandomly() {
@@ -53,8 +54,13 @@ setInitialNoBtnPosition();
 
 // Change text, hide GIF, and add a new Tenor GIF when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Perfect! I'll pick you up at 8 PM PST";
-  
+  // 1. Change the main heading text
+  question.innerHTML = "¡Perfecto! Paso por ti a las 8 PM PST";
+    
+  // 2. Hide the declaration paragraph (NEW LINE ADDED)
+  if (declarationText) {
+      declarationText.style.display = "none";
+  }
   // Remove the existing Tenor GIF embed
   if (tenorGifEmbed) {
     tenorGifEmbed.style.display = "none";

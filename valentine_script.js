@@ -4,7 +4,7 @@ const question = document.querySelector(".question");
 const tenorGifEmbed = document.querySelector(".tenor-gif-embed");
 const declarationText = document.querySelector(".declaration-text");
 
-// Move "No" button randomly
+// Mueve el botón "No" aleatoriamente
 function moveNoBtnRandomly() {
     const wrapper = document.querySelector(".wrapper");
     const wrapperRect = wrapper.getBoundingClientRect();
@@ -20,7 +20,7 @@ function moveNoBtnRandomly() {
     noBtn.style.top = `${randomY}px`;
 }
 
-// Initial position of No button
+// Posición inicial del botón "No"
 function setInitialNoBtnPosition() {
     const wrapper = document.querySelector(".wrapper");
     const yesBtnRect = yesBtn.getBoundingClientRect();
@@ -40,37 +40,32 @@ function setInitialNoBtnPosition() {
 
 setInitialNoBtnPosition();
 
-// Yes button clicked
+// Acción al hacer clic en "Sí"
 yesBtn.addEventListener("click", () => {
     question.innerHTML = `¡Yay! 💖 Sabía que dirías que sí. ¡Feliz San Valentín!`;
     if (declarationText) declarationText.style.display = "none";
     if (tenorGifEmbed) tenorGifEmbed.style.display = "none";
 
-    const newGif = document.createElement("div");
-    newGif.className = "tenor-gif-embed";
-    newGif.setAttribute("data-postid", "16978662"); // GIF de celebración
-    newGif.setAttribute("data-share-method", "host");
-    newGif.setAttribute("data-aspect-ratio", "2.53968");
-    newGif.setAttribute("data-width", "100%");
-    newGif.innerHTML = `<a href="https://tenor.com/view/flying-mia-emma-stone-sebastian-wilder-ryan-gosling-gif-16978662">Flying GIF</a> from <a href="https://tenor.com/search/flying-gifs">Flying GIFs</a>`;
-    
-    question.appendChild(newGif);
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = "https://tenor.com/embed.js";
-    document.body.appendChild(script);
+    // Agregamos GIF de Giphy
+    const giphyGif = document.createElement("img");
+    giphyGif.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHBhNWoxeG44NmN3dzVjNzhiZWF1dGQ2eDE3MzJ0NWtvNDZiZXFnNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UX5hm0jhM2RvbzuE0t/giphy.gif";
+    giphyGif.alt = "Celebration GIF";
+    giphyGif.style.maxWidth = "300px";
+    giphyGif.style.margin = "20px auto";
+    giphyGif.style.display = "block";
+
+    question.appendChild(giphyGif);
 
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
 });
 
-// Make No button run away
+// Botón "No" huye al pasar el mouse
 noBtn.addEventListener("mouseover", moveNoBtnRandomly);
 noBtn.addEventListener("click", () => {
     alert("¡Ups! Parece que no puedes decir 'No' 😏");
     moveNoBtnRandomly();
 });
 
-// Reposition on resize
+// Reposicionar al redimensionar
 window.addEventListener("resize", setInitialNoBtnPosition);

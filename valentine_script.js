@@ -47,7 +47,7 @@ yesBtn.addEventListener("click", () => {
     if (declarationText) declarationText.style.display = "none";
 
     // Cambia el mensaje
-    question.innerHTML = `¡Yay! 💖 Sabía que dirías que sí. ¡Feliz San Valentín!`;
+    question.innerHTML = `💖 Sabía que dirías que sí! Feliz San Valentín! Si es verdad, mándame el código 1025`;
 
     // Oculta botones
     yesBtn.style.display = "none";

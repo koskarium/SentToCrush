@@ -1,7 +1,7 @@
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
-const tenorGifEmbed = document.querySelector(".tenor-gif-embed");
+const valentineGif = document.querySelector(".valentine-gif");
 const declarationText = document.querySelector(".declaration-text");
 
 // Mueve el botón "No" aleatoriamente
@@ -44,9 +44,9 @@ setInitialNoBtnPosition();
 yesBtn.addEventListener("click", () => {
     question.innerHTML = `¡Yay! 💖 Sabía que dirías que sí. ¡Feliz San Valentín!`;
     if (declarationText) declarationText.style.display = "none";
-    if (tenorGifEmbed) tenorGifEmbed.style.display = "none";
+    if (valentineGif) valentineGif.style.display = "none";
 
-    // Agregamos GIF de Giphy
+    // GIF de celebración (puedes usar otro Giphy si quieres)
     const giphyGif = document.createElement("img");
     giphyGif.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHBhNWoxeG44NmN3dzVjNzhiZWF1dGQ2eDE3MzJ0NWtvNDZiZXFnNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UX5hm0jhM2RvbzuE0t/giphy.gif";
     giphyGif.alt = "Celebration GIF";

@@ -38,9 +38,10 @@ h2.question {
     line-height: 1.5;
 }
 
-.tenor-gif-embed {
-    margin: 20px auto;
+.valentine-gif {
     max-width: 300px;
+    margin: 20px auto;
+    display: block;
 }
 
 .btn-group {
